@@ -1,17 +1,15 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 
-/* Utilitys */
+#ifndef UTIL_H
+#define UTIL_H
 
 // macros
-#define str_empty(str) ((str[0]) == '\0')
-#define max(a, b) ((a) > (b) ? (a) : (b))
-#define min(a, b) ((a) < (b) ? (a) : (b))
-
-// booleans
-#define true 1
-#define false 0
+#define STR_EMPTY(str) ((str[0]) == '\0')
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 // print a array of integers
 void print_arr_int(int arr[], size_t size) {
@@ -79,9 +77,9 @@ int min_int (int arr[], size_t size) {
   for (int i = 0; i < length; i++) {
     if (!i || i % 2 == 0) {
       if (i == length - 1) {
-        min_val = min(min_temp, arr[i]);
+        min_val = MIN(min_temp, arr[i]);
       } else {
-        min_val = min(arr[i], arr[i + 1]);
+        min_val = MIN(arr[i], arr[i + 1]);
       }
 
       if (min_val < min_temp)
@@ -91,3 +89,5 @@ int min_int (int arr[], size_t size) {
 
   return min_val;
 }
+
+#endif
