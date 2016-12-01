@@ -1,15 +1,19 @@
+
+#ifndef UTIL_H
+#define UTIL_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
-#ifndef UTIL_H
-#define UTIL_H
+/* Macros */
 
-// macros
-#define STR_EMPTY(str) ((str[0]) == '\0')
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define STR_EMPTY(s)     ((s[0]) == '\0')
+#define STR_EQUAL(a, b)  (strcmp((a), (b)) == 0)
+#define STR_STARTS_WITH(a, b)  (strncmp((a), (b), strlen((b))) == 0)
+#define MAX(a, b)        ((a) > (b) ? (a) : (b))
+#define MIN(a, b)        ((a) < (b) ? (a) : (b))
 
 // print a array of integers
 void print_arr_int(int arr[], size_t size) {
