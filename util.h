@@ -1,97 +1,36 @@
+#ifndef _UTIL_H_
+#define _UTIL_H_
 
-#ifndef UTIL_H
-#define UTIL_H
+/* Types */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+typedef char       int8;
+typedef short      int16;
+typedef int        int32;
+typedef long long  int64;
+
+typedef unsigned char       uint8;
+typedef unsigned short      uint16;
+typedef unsigned int        uint32;
+typedef unsigned long long  uint64;
 
 /* Macros */
 
-#define STR_EMPTY(s)     ((s[0]) == '\0')
-#define STR_EQUAL(a, b)  (strcmp((a), (b)) == 0)
-#define STR_STARTS_WITH(a, b)  (strncmp((a), (b), strlen((b))) == 0)
-#define MAX(a, b)        ((a) > (b) ? (a) : (b))
-#define MIN(a, b)        ((a) < (b) ? (a) : (b))
+#define STR_EMPTY(s)           ((s[0]) == '\0')
+#define STR_EQUAL(a, b)        (strcmp((a), (b)) == 0)
+#define STR_START_WITH(a, b)   (strncmp((a), (b), strlen((b))) == 0)
+#define GET_LEN_INT(size)      ((size) / sizeof(int))
 
-// print a array of integers
-void print_arr_int(int arr[], size_t size) {
+#undef MAX
+#undef MIN
 
-  int length = size / sizeof(int);
-  printf("[ ");
-  for (int j = 0; j < length; j++) {
-		printf("%d", arr[j]);
+#define MAX(a, b)              ((a) > (b) ? (a) : (b))
+#define MIN(a, b)              ((a) < (b) ? (a) : (b))
 
-    if (j == length - 1)
-			printf(" ");
-		else
-			printf(", ");
-	}
-  printf("]\n");
-}
+/* Prototypes */
 
-// print a array of floats
-void print_arr_float(float arr[], size_t size) {
-
-  int length = size / sizeof(int);
-  printf("[ ");
-  for (int j = 0; j < length; j++) {
-		printf("%.4f", arr[j]);
-
-    if (j == length - 1)
-			printf(" ");
-		else
-			printf(", ");
-	}
-  printf("]\n");
-}
-
-// return the length of an array of integers
-int get_len_int (int size) {
-  return size / sizeof(int);
-}
-
-// find the max value in a arrray of integers
-int max_int (int arr[], size_t size) {
-  int length = get_len_int(size);
-  int max = 0;
-
-  for (int i = 0; i < length; i++) {
-    if (arr[i] > max)
-      max = arr[i];
-  }
-
-  return max;
-}
-
-// find the min value in a array of integers
-int min_int (int arr[], size_t size) {
-  int length = get_len_int(size);
-  int min_val;
-  int max_val = 0;
-
-  for (int i = 0; i < length; i++) {
-    if (arr[i] > max_val)
-      max_val = arr[i];
-  }
-
-  int min_temp = max_val;
-
-  for (int i = 0; i < length; i++) {
-    if (!i || i % 2 == 0) {
-      if (i == length - 1) {
-        min_val = MIN(min_temp, arr[i]);
-      } else {
-        min_val = MIN(arr[i], arr[i + 1]);
-      }
-
-      if (min_val < min_temp)
-        min_temp = min_val;
-    }
-  }
-
-  return min_val;
-}
+void print_arr_int (int arr[], size_t size);
+void print_arr_float (float arr[], size_t size);
+int max_int (int arr[], size_t size);
+int min_int (int arr[], size_t size);
 
 #endif
