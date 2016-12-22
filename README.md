@@ -5,26 +5,33 @@ Simple utilitys for programing in c.
 A simple example:
 
 ```c
+#include <stdio.h>
+#include <stdlib.h>
 #include "utilitys-c/util.h"
 
-int main () {
+int main (void) {
   char str[] = "";
 
-  // Is the string empty ?
+  // Is the string empty.
   if (STR_EMPTY(str)) {
     puts("Yes.");
   }
 
-  // print array of integers
+  // Print array of integers.
   int arr[] = {22, 6, 28, -99};
   print_arr_int(arr, sizeof(arr)); // [22, 6, 28, -99]
 
-  // find the max value
+  // Find the max value.
   printf("%d", max_int(arr, sizeof(arr))); // 28
 
-  // find the min value
+  // Find the min value.
   printf("%d", min_int(arr, sizeof(arr))); // -99
 
-  return false;
+  return EXIT_SUCCESS;
 }
+```
+
+Compile and execute:
+```shell
+gcc main.c utilitys-c/util.c -o main; ./main
 ```
