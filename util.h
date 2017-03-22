@@ -1,3 +1,10 @@
+/*
+ * (c) Ricardo Moreno <morenoricardo237@gmail.com>
+ *
+ * For more details about the license of this source code,
+ * please view the file LICENSE.
+ */
+
 #ifndef _UTIL_H_
 #define _UTIL_H_
 
