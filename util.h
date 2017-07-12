@@ -22,6 +22,7 @@ typedef unsigned long long  uint64;
 
 /* Macros */
 
+#define IS_NULL(var)           ((var) == NULL)
 #define STR_EMPTY(s)           ((s[0]) == '\0')
 #define STR_EQUAL(a, b)        (strcmp((a), (b)) == 0)
 #define STR_START_WITH(a, b)   (strncmp((a), (b), strlen((b))) == 0)
