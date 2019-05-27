@@ -1,13 +1,13 @@
-# Utilitys
+# Utilities
 
-Simple utilitys for programing in c.
+Simple utilities for programing in c.
 
 A simple example:
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
-#include "utilitys-c/util.h"
+#include "utilities-c/util.h"
 
 int main (void) {
   char str[] = "";
